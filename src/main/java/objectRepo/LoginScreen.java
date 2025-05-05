@@ -3,12 +3,14 @@ package objectRepo;
 import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import GenericUtility.BaseClass;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 
-public class LoginScreen {
+public class LoginScreen extends BaseClass{
 
 	
 	AndroidDriver driver;
@@ -18,15 +20,42 @@ public class LoginScreen {
 		
 	}
 	
-	public void clickOnUserName() throws InterruptedException {
+	@FindBy(className = "android.widget.EditText")
+	private WebElement userName;
+	
+	public void ClickOnUsersName() {
+		try {
+			driverUtility.threadWait(15);
+			userName.click();
+			driverUtility.threadWait(2);
+			System.out.println("Clicked on username");
+			driverUtility.threadWait(2);
+		}catch (Exception e) {
+			System.out.println("Not able to click on username");
+		}
+	}
+	
+	public void SendKeysToUsernameTextField(String key) {
+		try {
+			driverUtility.threadWait(2);
+			userName.sendKeys(key);
+			String value = userName.getText();
+			System.out.println("Entered value "+ value);
+			driverUtility.threadWait(2);
+		}catch (Exception e) {
+			System.out.println("Not able to sendkeys to username ");
+		}
+	}
+	
+	public void clickOnUserNameAndSendKeys(String key) throws InterruptedException {
 		
-		String userName = "2000948";
+//		String userName = "2000948";
 		Thread.sleep(5000);
 		 WebElement UserName = driver.findElement(AppiumBy.className("android.widget.EditText"));
 	        UserName.click(); 
 	        System.out.println("Clicked on UserName");
 	        Thread.sleep(3000);
-	        UserName.sendKeys(userName);
+	        UserName.sendKeys(key);
 	        Thread.sleep(5000);
 	        driver.hideKeyboard();
 	        
@@ -87,14 +116,15 @@ public class LoginScreen {
         
         sendOTP.click();
         System.out.println("Clicked on Send OTP button");
-        Thread.sleep(7000);
+        Thread.sleep(3000);
 	}
 	
 	public void VFcode1sendkeys() throws InterruptedException {
 		
-		WebElement VFcode1 = driver.findElement(AppiumBy.androidUIAutomator(
-     		    "new UiSelector().className(\"android.widget.EditText\").instance(0)"));
+		WebElement VFcode1 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View[3]/android.widget.EditText[1]"));
+		
         VFcode1.click();
+        Thread.sleep(1000);
         VFcode1.sendKeys("1");
         
         Thread.sleep(2000);

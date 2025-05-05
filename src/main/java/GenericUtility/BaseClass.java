@@ -6,10 +6,10 @@ import java.net.URL;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 import io.appium.java_client.android.AndroidDriver;
+import objectRepo.HomeScreen;
 import objectRepo.LoginScreen;
  
 
@@ -20,14 +20,17 @@ public class BaseClass {
 	
 	public static AndroidDriver driver;
 	public LoginScreen ls;
+	public DriverUtility driverUtility;
+	public GestureUtility gestureUtility;
+	public HomeScreen homeScreen;
 	
 	@BeforeMethod
 	public void launchApp() throws MalformedURLException, InterruptedException {
 		
 		   DesiredCapabilities cap = new DesiredCapabilities();
 
-	        cap.setCapability("deviceName", "Galaxy A35 5G");
-	        cap.setCapability("udid", "RZCY12RW62D"); // ✅ should be lowercase "udid"
+	        cap.setCapability("deviceName", "Redmi A2");
+	        cap.setCapability("UDID", "WKAQCYCQKROVDE4L"); // ✅ should be lowercase "udid"
 	        cap.setCapability("platformName", "Android");
 	        cap.setCapability("automationName", "UiAutomator2");
 	        cap.setCapability("noReset", true);                     
@@ -38,22 +41,20 @@ public class BaseClass {
 
 	        // ✅ Include the /wd/hub path
 	        URL url = URI.create("http://localhost:4723").toURL();
-	         
-//	        URL url = new URL("http://127.0.0.1:4723/wd/hub");
-	    
-
-	        // AndroidDriver with <MobileElement>
 	         driver = new AndroidDriver(url, cap);
 
 	        // ✅ Activate the app (optional since you're already launching it via caps)
 	        driver.activateApp("com.godrej.distributorcrm");
-
 	        System.out.println("Application Started...");
 	        
 	        Thread.sleep(5000);
 	
 	
 	        ls = new LoginScreen(driver);
+	        driverUtility = new DriverUtility(driver);
+	        gestureUtility = new GestureUtility(driver);
+	        homeScreen = new HomeScreen(driver);
+	        
 	}
 	
 	@AfterMethod
