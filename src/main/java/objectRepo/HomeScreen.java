@@ -33,7 +33,7 @@ public class HomeScreen extends BaseClass{
 	
 	
 	public void clickonBalanceConfirmation() {
-	WebElement balConf = driver.findElement(AppiumBy.accessibilityId("new UiSelector().className('android.widget.ImageView').instance(5)"));
+	WebElement balConf = driver.findElement(AppiumBy.accessibilityId("Balance\nConfirmation"));
 	balConf.click(); 
 	}
 	
@@ -177,6 +177,14 @@ public class HomeScreen extends BaseClass{
 	    } catch (Exception e) {
 	        System.out.println("Exception occurred while verifying BalanceConfirmation Widget: " + e.getMessage());
 	    }
+	}
+	
+	public void ClickOnBalanceConfirmationWidget() {
+		 WebElement widget = driver.findElement(
+	            AppiumBy.accessibilityId("Balance Confirmation\\nConfirm your balance before 15th May\\nConfirm now to avoid penalty")
+	        );
+		 widget.click();
+		
 	}
 
 	

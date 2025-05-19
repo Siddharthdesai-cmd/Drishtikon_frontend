@@ -14,7 +14,7 @@ public class FileUtility {
 	 *@param key , here key is passed to call the value 
 	 */
 	public static String getDataFromProperty(String key) throws IOException {
-		FileInputStream fis= new FileInputStream("C:\\Users\\testing.engineer\\git\\repository3\\Agrovet.Samadhan.Operator\\testData\\ConfigrationFile.property");
+		FileInputStream fis= new FileInputStream("C:\\Users\\testing.engineer\\git\\Drishtikon_frontend\\testOutput\\ConfigrationFile.property");
 		Properties prop=new Properties();
 		prop.load(fis);
 		String value=prop.getProperty(key);

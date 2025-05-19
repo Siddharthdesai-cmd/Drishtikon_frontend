@@ -187,14 +187,26 @@ public class GestureUtility {
 		 * @parma percentage ,takes to know how much to scroll
 		 * @param dir , take to know in which direction it has to scroll
 		 * */
-		public void scrollByAxes(int startX, int startY, int endX, int endY, String dir, double percentage) {
+//		public void scrollByAxes(int startX, int startY, int endX, int endY, String dir, double percentage) {
+//		    @SuppressWarnings("unused")
+//		    boolean canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
+//		        "startX", startX, 
+//		        "startY", startY, 
+//		        "endX", endX, 
+//		        "endY", endY,
+//		        "direction", dir, 
+//		        "percent", percentage
+//		    ));
+//		}
+		
+		public void scrollByDirection(String direction, double percentage) {
 		    @SuppressWarnings("unused")
 		    boolean canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
-		        "startX", startX, 
-		        "startY", startY, 
-		        "endX", endX, 
-		        "endY", endY,
-		        "direction", dir, 
+		        "left", 0,
+		        "top", 50, // below the status bar
+		        "width", 720,
+		        "height", 1550,
+		        "direction", direction,
 		        "percent", percentage
 		    ));
 		}
