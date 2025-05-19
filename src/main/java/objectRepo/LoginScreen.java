@@ -49,7 +49,6 @@ public class LoginScreen extends BaseClass{
 	
 	public void clickOnUserNameAndSendKeys(String key) throws InterruptedException {
 		
-//		String userName = "2000948";
 		Thread.sleep(5000);
 		 WebElement UserName = driver.findElement(AppiumBy.className("android.widget.EditText"));
 	        UserName.click(); 
@@ -121,7 +120,7 @@ public class LoginScreen extends BaseClass{
 	
 	public void VFcode1sendkeys() throws InterruptedException {
 		
-		WebElement VFcode1 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View[3]/android.widget.EditText[1]"));
+		WebElement VFcode1 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
 		
         VFcode1.click();
         Thread.sleep(1000);
@@ -145,9 +144,10 @@ public class LoginScreen extends BaseClass{
         WebElement VFcode3 = driver.findElement(AppiumBy.androidUIAutomator(
      		    "new UiSelector().className(\"android.widget.EditText\").instance(2)"));
         VFcode3.click();
+        Thread.sleep(2000);
         VFcode3.sendKeys("3");
         
-       Thread.sleep(2000);
+       
 	}
 	
 	public void VFcode4sendkeys() throws InterruptedException {

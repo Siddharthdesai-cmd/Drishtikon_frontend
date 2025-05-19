@@ -79,7 +79,7 @@ public class AppiumTestD extends BaseClass{
 	public void verifyLoginwithouttermsandConditions() throws InterruptedException {
 		
 		String userName = "2000948";	
-		ls.clickOnUserNameAndSendKeys(userName);
+		ls.clickOnUserNameAndSendKeys(userName);;
 	    ls.assertSendOTP();
 	
 	}	

@@ -5,8 +5,7 @@
     <classes>
       <class name="HomeFunctionality.OverDueBalance">
         <methods>
-          <include name="verifyUserAbleToClickProofOfDelivery"/>
-          <include name="CloseApp"/>
+          <include name="verifyTheFilterButtonShouldApplyBothTheDateAndStatusFiltersSimultaneouslyLast3MonthAndDelivered"/>
           <include name="launchApp"/>
         </methods>
       </class> <!-- HomeFunctionality.OverDueBalance -->
