@@ -1,6 +1,5 @@
 package GenericUtility;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
@@ -9,13 +8,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
 import objectRepo.BalanceConfirmationScreen;
 import objectRepo.DefaulterUser;
 import objectRepo.HomeScreen;
 import objectRepo.LoginScreen;
+import objectRepo.OrderScreen;
 import objectRepo.ProofOfDelivery;
  
 
@@ -25,6 +25,7 @@ import objectRepo.ProofOfDelivery;
 public class BaseClass {
 	
 	public static AndroidDriver driver;
+	public static AppiumDriver appiumdriver;
 	public LoginScreen ls;
 	public DriverUtility driverUtility;
 	public GestureUtility gestureUtility;
@@ -34,6 +35,7 @@ public class BaseClass {
 	public AppiumDriverLocalService service ;
 	public FileUtility fileUtility;
 	public ProofOfDelivery proofOfDelivery;
+	public OrderScreen orderScreen;
 	
 	@BeforeMethod
 	public void launchApp() throws InterruptedException, IOException {
@@ -81,6 +83,7 @@ public class BaseClass {
 
 	        // ✅ Include the /wd/hub path
 	        URL url = URI.create("http://localhost:4723").toURL();
+	        appiumdriver= new AppiumDriver(url, desiredCapability);
 	         driver = new AndroidDriver(url, desiredCapability);
 	         
 //	         if(driver.isDeviceLocked()) {
@@ -108,6 +111,7 @@ public class BaseClass {
 	        defaulterUser = new DefaulterUser(driver);
 	        fileUtility = new FileUtility();
 	        proofOfDelivery = new ProofOfDelivery(driver);
+	        orderScreen = new OrderScreen(driver);
 	        
 	}
 	
@@ -117,7 +121,7 @@ public class BaseClass {
 //		
 //		driver.terminateApp("com.godrej.distributorcrm");		
 //	}
-	
+//	
 
 	
 }

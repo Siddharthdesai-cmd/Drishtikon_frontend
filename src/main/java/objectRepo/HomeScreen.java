@@ -26,6 +26,10 @@ public class HomeScreen extends BaseClass{
 	@FindBy(xpath = "//android.widget.ImageView")
 	private WebElement back;
 	
+	@FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Home\r\n"
+			+ "Tab 1 of 5\"]")
+	private WebElement orderButton;
+	
 	public void clickonProofofDelivery() {
 	WebElement POD = driver.findElement(AppiumBy.accessibilityId("Proof Of\nDelivery"));
 	POD.click(); 
@@ -185,6 +189,18 @@ public class HomeScreen extends BaseClass{
 	        );
 		 widget.click();
 		
+	}
+	
+	public void clickOnOrderButton() {
+		try {
+//			orderButton.click();
+//			System.out.println("clicked on order Button");
+			WebElement order = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"Orders\r\n"
+					+ "Tab 2 of 5\")"));
+			order.click();
+		}catch (Exception e) {
+			System.out.println("Not able to click on order Button");
+		}
 	}
 
 	

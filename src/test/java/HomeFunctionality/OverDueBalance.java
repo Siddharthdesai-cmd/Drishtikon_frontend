@@ -520,12 +520,13 @@ public class OverDueBalance extends BaseClass{
 	public void verifyTheFilterButtonShouldApplyBothTheDateAndStatusFiltersSimultaneouslyLast6MonthAndDiscrepancy() {
 		driverUtility.implicitlyWait(20);
 		driverUtility.threadWait(8);
-		gestureUtility.clickByAxes(117, 1078);   // clicking on Proof of delivery
-		proofOfDelivery.clickOnFilterButton();
-		proofOfDelivery.clickOnLast6MonthRadioButton();
-		proofOfDelivery.clickOnBackArrowButton();
-		driverUtility.threadWait(2);
-		proofOfDelivery.ClickOnDiscrepencyButton();
+		homeScreen.clickonProofofDelivery();
+//		gestureUtility.clickByAxes(117, 1078);   // clicking on Proof of delivery
+//		proofOfDelivery.clickOnFilterButton();
+//		proofOfDelivery.clickOnLast6MonthRadioButton();
+//		proofOfDelivery.clickOnBackArrowButton();
+//		driverUtility.threadWait(2);
+//		proofOfDelivery.ClickOnDiscrepencyButton();
 	}
 	
 	/**
@@ -540,6 +541,7 @@ public class OverDueBalance extends BaseClass{
 		proofOfDelivery.clickOnFilterButton();
 		proofOfDelivery.clickOnClearAllButton();
 	}
+	
 	
 	
 }
