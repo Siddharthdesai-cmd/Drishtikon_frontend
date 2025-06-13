@@ -3,19 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="appiumtests.AppiumTestD">
+      <class name="HomeFunctionality.OrderTest">
         <methods>
-          <include name="onlythreeOTP"/>
-          <include name="onlytwoOTP"/>
-          <include name="invalid"/>
-          <include name="multipleValuesOTP"/>
-          <include name="CloseApp"/>
-          <include name="verifyLoginwithouttermsandConditions"/>
-          <include name="Defaulteraftercancel"/>
-          <include name="onlyoneOTP"/>
+          <include name="TheFilterButtonShouldApplyBothTheDateAndStatusFiltersSimultaneouslyLast3MonthAndDispatched"/>
           <include name="launchApp"/>
         </methods>
-      </class> <!-- appiumtests.AppiumTestD -->
+      </class> <!-- HomeFunctionality.OrderTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

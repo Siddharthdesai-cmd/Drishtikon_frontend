@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 
 import io.appium.java_client.android.AndroidDriver;
 import objectRepo.LoginScreen;
+import objectRepo.homeScreen;
  
 
 /**
@@ -20,6 +21,9 @@ public class BaseClass {
 	
 	public static AndroidDriver driver;
 	public LoginScreen ls;
+	public DriverUtility driverUtility;
+	public GestureUtility gestreUtility;
+	public homeScreen  homeScreen;
 	
 	@BeforeMethod
 	public void launchApp() throws MalformedURLException, InterruptedException {
@@ -54,6 +58,9 @@ public class BaseClass {
 	
 	
 	        ls = new LoginScreen(driver);
+	        driverUtility = new DriverUtility(driver);
+	        gestreUtility = new GestureUtility(driver);
+	        homeScreen = new homeScreen(driver);
 	}
 	
 	@AfterMethod
